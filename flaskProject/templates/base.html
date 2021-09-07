@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet" >
+   <link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ url_for('news_section') }}">News</a>
+        </li>
+
+
+
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if session['logged_in'] %}
+                <li> <a class="nav-link active" aria-current="page" href="{{ url_for("logout") }}">Logout</a></li>
+            {% else %}
+               <li><a class="nav-link active" aria-current="page" href="{{ url_for("login") }}">Login</a></li>
+            {% endif %}
+
+            <li class="nav-item" >
+                <a class="nav-link active" aria-current="page" href="{{ url_for("sign_up") }}">SignUp</a>
+            </li>
+        </ul>
+      <form class="d-flex">
+
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+{% block body_block %}
+
+{% endblock %}
+
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{#<script type="text/javascript" src="{{ url_for('static',filename='js/popper.min.js') }}" ></script>#}
+{#<script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js') }}" ></script>#}
+{#<script type="text/javascript" src="{{ url_for('static',filename='js/jquery.js') }}" ></script>#}
+</body>
+</html>

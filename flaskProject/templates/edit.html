@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{#{% import "bootstrap/wtf.html" as wtf %}#}
+{% block body_block %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12  bg-light">
+                <h3 class="text-center" style="margin-top: 30px;"> Edit Post</h3>
+
+            </div>
+        </div>
+
+        <form method="post" action="{{ url_for("edit_post", id=record.id)}}" class="form" role="form">
+            {{ form.csrf_token }}
+
+            <p>
+                {{ form.title.label(class="form-label") }}: <br> {{ form.title(class="form-control", value=record.title)}}
+            </p>
+
+             <p>
+                {{ form.description.label(class="form-label") }}: <br> {{ form.description(class="form-control", value=record.description)}}
+             </p>
+
+            <p>
+                {{ form.author.label(class="form-label") }}: <br> {{ form.author(class="form-control", value=record.author)}}
+            </p>
+
+            <p>
+                <input  type="submit" value="Update" class="btn btn-success ">
+            </p>
+
+        </form>
+    </div>
+{% endblock %}

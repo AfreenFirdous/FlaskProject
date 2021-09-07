@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body_block %}
+    <div class="container" >
+        <h1> HeadLines</h1>
+        {% for new, des, img in mylist %}
+        <img src="{{img}}" alt="img" width="550px" height="350px"><br>
+        <h4>Title:</h4>{{ new }}<br>
+         <h6>Description:</h6>{{ des }}<br>
+        {% endfor %}
+    </div>
+{% endblock %}
